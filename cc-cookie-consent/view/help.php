@@ -41,6 +41,7 @@
     <p><b>Theme settings</b></p>
     <img class="img-responsive" src="<?php echo plugins_url(); ?>/cc-cookie-consent/assets/img/theme_docs.png" alt="Theme settings" />
     <p><a class="button" href="admin.php?page=cookie-consent">You can change settings here</a></p>
+    <p><a class="button" href="https://silktide.com/tools/cookie-consent/docs/" target="_blank">Silktide Cookie Consent documentation</a></p>
     <hr />
     <h3><?php _e('Contribute'); ?></h3>
     <p>Contributing code is both an important and effective way to improve the CC Cookie Consent project and its capabilities.</p>
