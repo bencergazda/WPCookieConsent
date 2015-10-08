@@ -1,9 +1,9 @@
 <?php
 /**
  * Plugin Name: CC Cookie Consent (Silktide)
- * Plugin URI: https://progweb.hu
+ * Plugin URI: https://progweb.hu/cc
  * Description: Cookie Consent Plugin for WordPress. Original javascript plugin developed by Silktide
- * Version: 1.0.0
+ * Version: 1.0.1
  * Author: WebPositive <hello@progweb.hu>
  * Author URI: https://progweb.hu
  * Tags: cookie, cookie consent, wordpress, silktide
@@ -11,8 +11,8 @@
  */
 
 if(!defined('ABSPATH'))exit;
-define('CC_VERSION','1.0.0');
-define('CC_BUILD_DATE','2015-10-05');
+define('CC_VERSION','1.0.1');
+define('CC_BUILD_DATE','2015-10-08');
 
 global $theme;
 global $message;
@@ -29,7 +29,7 @@ $ok_button = "Got it!";
 function cookie_scripts()
 {
     if ($GLOBALS['pagenow'] != 'wp-login.php' && !is_admin()) {
-        wp_register_script('cc-js', 'https://s3.amazonaws.com/cc.silktide.com/cookieconsent.latest.min.js', array(), '1.0.0', false);
+        wp_register_script('cc-js', ''.plugins_url().'/cc-cookie-consent/assets/plugin-js/cookieconsent.latest.min.js', array(), '1.0.1', false);
         wp_enqueue_script('cc-js');
     }
 }
