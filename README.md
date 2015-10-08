@@ -24,8 +24,6 @@ You're forever free to copy, modify and even sell Cookie Consent.
 
 Just 3.5k when minified, and you don't need JQuery or anything else.
 
-*Customisable*
-
 **Contribute**
 
 Contributing code is both an important and effective way to improve the **CC Cookie Consen**t project and its capabilities.
