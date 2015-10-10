@@ -60,7 +60,7 @@ add_action('wp_head', 'wpSilktideCookieInlineScripts');
 
 /** Add Settings link */
 add_filter( 'plugin_action_links_' . plugin_basename(__FILE__), 'wpSilktideCookieSettingsLinks' );
-function hyperionCookieSettingsLinks( $links ) {
+function wpSilktideCookieSettingsLinks( $links ) {
     $links[] = '<a href="'. esc_url( get_admin_url(null, 'admin.php?page=cookie-consent') ) .'">Settings</a>';
     return $links;
 }
