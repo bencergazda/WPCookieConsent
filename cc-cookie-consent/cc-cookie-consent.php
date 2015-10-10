@@ -3,7 +3,7 @@
  * Plugin Name: CC Cookie Consent (Silktide)
  * Plugin URI: https://progweb.hu/cc
  * Description: Cookie Consent Plugin for WordPress. Original javascript plugin developed by Silktide
- * Version: 1.0.1
+ * Version: 1.0.3
  * Author: WebPositive <hello@progweb.hu>
  * Author URI: https://progweb.hu
  * Tags: cookie, cookie consent, wordpress, silktide
@@ -11,8 +11,8 @@
  */
 
 if(!defined('ABSPATH'))exit;
-define('CC_VERSION','1.0.1');
-define('CC_BUILD_DATE','2015-10-08');
+define('CC_VERSION','1.0.3');
+define('CC_BUILD_DATE','2015-10-10');
 
 global $theme;
 global $message;
@@ -20,23 +20,28 @@ global $more_info;
 global $more_link;
 global $ok_button;
 
-$more_theme = "light-bottom";
+$theme = "light-bottom";
 $message = "Hello! This website uses cookies to ensure you get the best experience on our website";
 $more_info = "More info";
 $more_link = null;
 $ok_button = "Got it!";
 
-function cookie_scripts()
+function wpSilktideCookieScripts()
 {
     if ($GLOBALS['pagenow'] != 'wp-login.php' && !is_admin()) {
-        wp_register_script('cc-js', ''.plugins_url().'/cc-cookie-consent/assets/plugin-js/cookieconsent.latest.min.js', array(), '1.0.1', false);
+        wp_register_script('cc-js', ''.plugins_url( 'assets/plugin-js/cookieconsent.latest.min.js', __FILE__ ).'', array(), '1.0.2', false);
         wp_enqueue_script('cc-js');
+
+        /** This will create a Javascript Object in the header, which will be available to your scripts at runtime. */
+        $wpSilktideCookieAssets = array('cc_plugin_assets' => plugins_url( 'assets/plugin-css/', __FILE__ ));
+        wp_localize_script('cc-js', 'wpSilktideCookieAssets', $wpSilktideCookieAssets);
     }
 }
-add_action('init', 'cookie_scripts');
+\add_action('init', 'wpSilktideCookieScripts');
+
 
 /** Add CC config js if cookie.consent.js loaded */
-function cc_inline_script() {
+function wpSilktideCookieInlineScripts() {
     if ( wp_script_is( 'cc-js', 'done' ) ) {
         ?>
         <script type="text/javascript">
@@ -51,11 +56,11 @@ function cc_inline_script() {
         <?php
     }
 }
-add_action('wp_head', 'cc_inline_script');
+\add_action('wp_head', 'wpSilktideCookieInlineScripts');
 
 /** Add Settings link */
-add_filter( 'plugin_action_links_' . plugin_basename(__FILE__), 'cc_settings_links' );
-function cc_settings_links( $links ) {
+add_filter( 'plugin_action_links_' . plugin_basename(__FILE__), 'wpSilktideCookieSettingsLinks' );
+function hyperionCookieSettingsLinks( $links ) {
     $links[] = '<a href="'. esc_url( get_admin_url(null, 'admin.php?page=cookie-consent') ) .'">Settings</a>';
     return $links;
 }
@@ -63,18 +68,18 @@ function cc_settings_links( $links ) {
 /**
  * Add Settings Page
  */
-add_action('admin_menu', 'create_settings_page');
-function create_settings_page() {
-    add_menu_page(__('Cookie Consent','cookie-consent'), __('Cookie Consent','cookie-consent'), 'manage_options', 'cookie-consent', 'settingsPage');
+\add_action('admin_menu', 'wpSilktideCookieSettings');
+function wpSilktideCookieSettings() {
+    add_menu_page(__('Cookie Consent','cookie-consent'), __('Cookie Consent','cookie-consent'), 'manage_options', 'cookie-consent', 'wpSilktideCookieSettingsPage');
 }
 
-add_action('admin_menu', 'sub_menu_page');
-function sub_menu_page() {
-    add_submenu_page( 'cookie-consent', 'Help/Information', 'Help/Information', 'manage_options', 'cookie-consent-info', 'helpPage' );
+\add_action('admin_menu', 'wpSilktideCookieSubMenu');
+function wpSilktideCookieSubMenu() {
+    add_submenu_page( 'cookie-consent', 'Help/Information', 'Help/Information', 'manage_options', 'cookie-consent-info', 'wpSilktideCookieHelpPage' );
 }
 
 /** option template for settings pages */
-function custom_option_template($option_title, $option_desc, $option_section, $option_options)
+function wpSilktideCustomOptionTemplate($option_title, $option_desc, $option_section, $option_options)
 {
     ?>
     <div class="wrap">
@@ -93,11 +98,11 @@ function custom_option_template($option_title, $option_desc, $option_section, $o
     <?php
 }
 
-function input_field($input, $placeholder) {
+function wpSilktideInputField($input, $placeholder) {
     echo '<input class="regular-text" type="text" name="'.$input.'" id="'.$input.'" value="'.get_option($input).'" placeholder="'.$placeholder.'" />';
 }
 
-function option_select_page($link) {
+function wpSilktideSelectField($link) {
     echo '<select name="'.$link.'">';
         $selected_page = get_option($link);
         $pages = get_pages();
@@ -113,16 +118,16 @@ function option_select_page($link) {
 }
 
 /** Plugin Settings Tab */
-function settingsPage() {
+function wpSilktideCookieSettingsPage() {
     $option_title = "Cookie Consent Settings";
     $option_desc = "This settings are required to use Cookie Consent plugin on Your website. Please fill the form then see the frontend page!";
-    $option_section = "cc-plugin-section";
-    $option_options = "cc-plugin-options";
-    custom_option_template($option_title, $option_desc, $option_section, $option_options);
+    $option_section = "silktide-cc-plugin-section";
+    $option_options = "silktide-cc-plugin-options";
+    wpSilktideCustomOptionTemplate($option_title, $option_desc, $option_section, $option_options);
 }
 
 /** Plugin Settings Fields */
-function chooseTheme() {
+function wpSilktideCookieChooseTheme() {
     echo
         "<select name='cc_theme' id='cc_theme'>".
             "<option value='dark-top' ".selected( get_option('cc_theme'), 'dark-top', false).">Dark Top</option>".
@@ -134,52 +139,52 @@ function chooseTheme() {
         "</select>";
 }
 
-function textHeadline() {
-    $input = "cc_text_headline";
+function wpSilktideCookieTextHeadline() {
+    $input = "silktide_cc_text_headline";
     $placeholder = "Headline text";
-    input_field($input, $placeholder);
+    wpSilktideInputField($input, $placeholder);
 }
 
-function textAcceptButton() {
-    $input = "cc_text_button";
+function wpSilktideCookieTextAcceptButton() {
+    $input = "silktide_cc_text_button";
     $placeholder = "Accept button text";
-    input_field($input, $placeholder);
+    wpSilktideInputField($input, $placeholder);
 }
 
-function textReadMoreButton() {
-    $input = "cc_text_more_button";
+function wpSilktideCookieTextReadMoreButton() {
+    $input = "silktide_cc_text_more_button";
     $placeholder = "Read more button text";
-    input_field($input, $placeholder);
+    wpSilktideInputField($input, $placeholder);
 }
 
-function linkCookiePolicy() {
-    $link = "cc_cookie_page";
-    option_select_page($link);
+function wpSilktideCookieLinkCookiePolicy() {
+    $link = "silktide_cc_cookie_page";
+    wpSilktideSelectField($link);
 }
 
 /** Plugin help & Information Tab */
-function helpPage() {
+function wpSilktideCookieHelpPage() {
     include_once('view/help.php');
 }
 
 /**
  * Save and get options
  */
-function cc_fields()
+function wpSilktideCookieFields()
 {
-    add_settings_section("cc-plugin-section", null, null, "cc-plugin-options");
+    add_settings_section("silktide-cc-plugin-section", null, null, "silktide-cc-plugin-options");
 
-    add_settings_field("cc_theme", "Choose theme", "chooseTheme", "cc-plugin-options", "cc-plugin-section");
-    add_settings_field("cc_text_headline", "Headline text", "textHeadline", "cc-plugin-options", "cc-plugin-section");
-    add_settings_field("cc_text_button", "Accept button text", "textAcceptButton", "cc-plugin-options", "cc-plugin-section");
-    add_settings_field("cc_text_more_button", "Read more button text", "textReadMoreButton", "cc-plugin-options", "cc-plugin-section");
-    add_settings_field("cc_cookie_page", "Your cookie policy page", "linkCookiePolicy", "cc-plugin-options", "cc-plugin-section");
+    add_settings_field("silktide_cc_theme", "Choose theme", "wpSilktideCookieChooseTheme", "silktide-cc-plugin-options", "silktide-cc-plugin-section");
+    add_settings_field("silktide_cc_text_headline", "Headline text", "wpSilktideCookieTextHeadline", "silktide-cc-plugin-options", "silktide-cc-plugin-section");
+    add_settings_field("silktide_cc_text_button", "Accept button text", "wpSilktideCookieTextAcceptButton", "silktide-cc-plugin-options", "silktide-cc-plugin-section");
+    add_settings_field("silktide_cc_text_more_button", "Read more button text", "wpSilktideCookieTextReadMoreButton", "silktide-cc-plugin-options", "silktide-cc-plugin-section");
+    add_settings_field("silktide_cc_cookie_page", "Your cookie policy page", "wpSilktideCookieLinkCookiePolicy", "silktide-cc-plugin-options", "silktide-cc-plugin-section");
 
-    register_setting("cc-plugin-section", "cc_theme");
-    register_setting("cc-plugin-section", "cc_text_headline");
-    register_setting("cc-plugin-section", "cc_text_button");
-    register_setting("cc-plugin-section", "cc_text_more_button");
-    register_setting("cc-plugin-section", "cc_cookie_page");
+    register_setting("silktide-cc-plugin-section", "silktide_cc_theme");
+    register_setting("silktide-cc-plugin-section", "silktide_cc_text_headline");
+    register_setting("silktide-cc-plugin-section", "silktide_cc_text_button");
+    register_setting("silktide-cc-plugin-section", "silktide_cc_text_more_button");
+    register_setting("silktide-cc-plugin-section", "silktide_cc_cookie_page");
 
 }
-add_action("admin_init", "cc_fields");
+\add_action("admin_init", "wpSilktideCookieFields");
