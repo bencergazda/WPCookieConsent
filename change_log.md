@@ -12,3 +12,7 @@
 
 = 1.0.3 =
 * Unique function names
+
+= 1.0.4 =
+* Fix an settings bug
+* CC Cookie Consent stable version
