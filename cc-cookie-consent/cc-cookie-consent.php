@@ -37,7 +37,7 @@ function wpSilktideCookieScripts()
         wp_localize_script('cc-js', 'wpSilktideCookieAssets', $wpSilktideCookieAssets);
     }
 }
-\add_action('init', 'wpSilktideCookieScripts');
+add_action('init', 'wpSilktideCookieScripts');
 
 
 /** Add CC config js if cookie.consent.js loaded */
@@ -56,7 +56,7 @@ function wpSilktideCookieInlineScripts() {
         <?php
     }
 }
-\add_action('wp_head', 'wpSilktideCookieInlineScripts');
+add_action('wp_head', 'wpSilktideCookieInlineScripts');
 
 /** Add Settings link */
 add_filter( 'plugin_action_links_' . plugin_basename(__FILE__), 'wpSilktideCookieSettingsLinks' );
@@ -68,12 +68,12 @@ function hyperionCookieSettingsLinks( $links ) {
 /**
  * Add Settings Page
  */
-\add_action('admin_menu', 'wpSilktideCookieSettings');
+add_action('admin_menu', 'wpSilktideCookieSettings');
 function wpSilktideCookieSettings() {
     add_menu_page(__('Cookie Consent','cookie-consent'), __('Cookie Consent','cookie-consent'), 'manage_options', 'cookie-consent', 'wpSilktideCookieSettingsPage');
 }
 
-\add_action('admin_menu', 'wpSilktideCookieSubMenu');
+add_action('admin_menu', 'wpSilktideCookieSubMenu');
 function wpSilktideCookieSubMenu() {
     add_submenu_page( 'cookie-consent', 'Help/Information', 'Help/Information', 'manage_options', 'cookie-consent-info', 'wpSilktideCookieHelpPage' );
 }
@@ -187,4 +187,4 @@ function wpSilktideCookieFields()
     register_setting("silktide-cc-plugin-section", "silktide_cc_cookie_page");
 
 }
-\add_action("admin_init", "wpSilktideCookieFields");
+add_action("admin_init", "wpSilktideCookieFields");
