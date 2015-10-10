@@ -29,7 +29,7 @@ $ok_button = "Got it!";
 function wpSilktideCookieScripts()
 {
     if ($GLOBALS['pagenow'] != 'wp-login.php' && !is_admin()) {
-        wp_register_script('cc-js', ''.plugins_url( 'assets/plugin-js/cookieconsent.latest.min.js', __FILE__ ).'', array(), '1.0.2', false);
+        wp_register_script('cc-js', ''.plugins_url( 'assets/plugin-js/cookieconsent.latest.min.js', __FILE__ ).'', array(), CC_VERSION, false);
         wp_enqueue_script('cc-js');
 
         /** This will create a Javascript Object in the header, which will be available to your scripts at runtime. */
