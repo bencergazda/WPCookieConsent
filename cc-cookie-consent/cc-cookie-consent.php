@@ -3,7 +3,7 @@
  * Plugin Name: CC Cookie Consent (Silktide)
  * Plugin URI: https://progweb.hu/cc
  * Description: Cookie Consent Plugin for WordPress. Original javascript plugin developed by Silktide
- * Version: 1.0.3
+ * Version: 1.0.4
  * Author: WebPositive <hello@progweb.hu>
  * Author URI: https://progweb.hu
  * Tags: cookie, cookie consent, wordpress, silktide
@@ -11,7 +11,7 @@
  */
 
 if(!defined('ABSPATH'))exit;
-define('CC_VERSION','1.0.3');
+define('CC_VERSION','1.0.4');
 define('CC_BUILD_DATE','2015-10-10');
 
 global $theme;
@@ -46,11 +46,11 @@ function wpSilktideCookieInlineScripts() {
         ?>
         <script type="text/javascript">
             window.cookieconsent_options = {
-                "message":"<?php if(get_option('cc_text_headline')): echo get_option('cc_text_headline'); else: global $message; echo $message; endif; ?>",
-                "dismiss":"<?php if(get_option('cc_text_button')): echo get_option('cc_text_button'); else: global $ok_button; echo $ok_button; endif; ?>",
-                "learnMore":"<?php if(get_option('cc_text_more_button')): echo get_option('cc_text_more_button'); else: global $more_info; echo $more_info; endif; ?>",
-                "link":"<?php if(get_option('cc_cookie_page')): echo get_option('cc_cookie_page'); else: global $more_link; echo $more_link; endif; ?>",
-                "theme":"<?php if(get_option('cc_theme')): echo get_option('cc_theme'); else: global $theme; echo $theme; endif; ?>"
+                "message":"<?php if(get_option('silktide_cc_text_headline')): echo get_option('silktide_cc_text_headline'); else: global $message; echo $message; endif; ?>",
+                "dismiss":"<?php if(get_option('silktide_cc_text_button')): echo get_option('silktide_cc_text_button'); else: global $ok_button; echo $ok_button; endif; ?>",
+                "learnMore":"<?php if(get_option('silktide_cc_text_more_button')): echo get_option('silktide_cc_text_more_button'); else: global $more_info; echo $more_info; endif; ?>",
+                "link":"<?php if(get_option('silktide_cc_cookie_page')): echo get_option('silktide_cc_cookie_page'); else: global $more_link; echo $more_link; endif; ?>",
+                "theme":"<?php if(get_option('silktide_cc_theme')): echo get_option('silktide_cc_theme'); else: global $theme; echo $theme; endif; ?>"
             };
         </script>
         <?php
@@ -129,13 +129,13 @@ function wpSilktideCookieSettingsPage() {
 /** Plugin Settings Fields */
 function wpSilktideCookieChooseTheme() {
     echo
-        "<select name='cc_theme' id='cc_theme'>".
-            "<option value='dark-top' ".selected( get_option('cc_theme'), 'dark-top', false).">Dark Top</option>".
-            "<option value='dark-floating' ".selected( get_option('cc_theme'), 'dark-floating', false).">Dark Floating</option>".
-            "<option value='dark-bottom' ".selected( get_option('cc_theme'), 'dark-bottom', false).">Dark Bottom</option>".
-            "<option value='light-floating' ".selected( get_option('cc_theme'), 'light-floating', false).">Dark Floating</option>".
-            "<option value='light-top' ".selected( get_option('cc_theme'), 'light-top', false).">Light Top</option>".
-            "<option value='light-bottom' ".selected( get_option('cc_theme'), 'light-bottom', false).">Light Bottom</option>".
+        "<select name='silktide_cc_theme' id='silktide_cc_theme'>".
+            "<option value='dark-top' ".selected( get_option('silktide_cc_theme'), 'dark-top', false).">Dark Top</option>".
+            "<option value='dark-floating' ".selected( get_option('silktide_cc_theme'), 'dark-floating', false).">Dark Floating</option>".
+            "<option value='dark-bottom' ".selected( get_option('silktide_cc_theme'), 'dark-bottom', false).">Dark Bottom</option>".
+            "<option value='light-floating' ".selected( get_option('silktide_cc_theme'), 'light-floating', false).">Dark Floating</option>".
+            "<option value='light-top' ".selected( get_option('silktide_cc_theme'), 'light-top', false).">Light Top</option>".
+            "<option value='light-bottom' ".selected( get_option('silktide_cc_theme'), 'light-bottom', false).">Light Bottom</option>".
         "</select>";
 }
 
