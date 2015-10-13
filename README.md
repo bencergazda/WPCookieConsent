@@ -1,17 +1,17 @@
-# WP/CC Cookie Consent
-WordPress unofficial Silktide Cookie Consent plugin. Original javascript plugin developed by Silktide
+Cookie Consent Plugin for WordPress.
 
-**What is this?**
+== Description ==
 
-The **CC Cookie Consent plugin** is an unofficial WordPress plugin version of the **[Silktide Cookie Consent](https://silktide.com/tools/cookie-consent/)**. The most popular solution to the EU Cookie Law.
+**WP/CC Cookie Consent**
 
-**Who developed this plugin?**
+WordPress unofficial Silktide Cookie Consent plugin.
 
-This plugin developed by [WebPositive](https://progweb.hu) from Hungary. 
+It is designed to help you comply with the EU Cookie Law and not make you want to kill yourself in the process. So we made it fast, free, and relatively painless.
+Original javascript plugin developed by Silktide
 
 **Why required this plugin for my site?**
 
-From October 2015 you must need display information about cookie management. 
+From October 2015 a new privacy law came into effect across the EU. The law requires that websites ask visitors for consent to use most web cookies.
 More information please read this: [EU Cookies Law](http://ec.europa.eu/ipg/basics/legal/cookies/index_en.htm)
 
 **Why Cookie Consent?**
