@@ -3,7 +3,7 @@
  * Plugin Name: CC Cookie Consent (Silktide)
  * Plugin URI: https://progweb.hu/cc
  * Description: Cookie Consent Plugin for WordPress. Original javascript plugin developed by Silktide
- * Version: 1.0.4
+ * Version: 1.0.1
  * Author: WebPositive <hello@progweb.hu>
  * Author URI: https://progweb.hu
  * Tags: cookie, cookie consent, wordpress, silktide
@@ -11,8 +11,8 @@
  */
 
 if(!defined('ABSPATH'))exit;
-define('CC_VERSION','1.0.4');
-define('CC_BUILD_DATE','2015-10-10');
+define('CC_VERSION','1.0.1');
+define('CC_BUILD_DATE','2015-10-14');
 
 global $theme;
 global $message;
@@ -37,8 +37,7 @@ function wpSilktideCookieScripts()
         wp_localize_script('cc-js', 'wpSilktideCookieAssets', $wpSilktideCookieAssets);
     }
 }
-add_action('init', 'wpSilktideCookieScripts');
-
+add_action('wp_enqueue_scripts', 'wpSilktideCookieScripts');
 
 /** Add CC config js if cookie.consent.js loaded */
 function wpSilktideCookieInlineScripts() {
@@ -46,11 +45,11 @@ function wpSilktideCookieInlineScripts() {
         ?>
         <script type="text/javascript">
             window.cookieconsent_options = {
-                "message":"<?php if(get_option('silktide_cc_text_headline')): echo get_option('silktide_cc_text_headline'); else: global $message; echo $message; endif; ?>",
-                "dismiss":"<?php if(get_option('silktide_cc_text_button')): echo get_option('silktide_cc_text_button'); else: global $ok_button; echo $ok_button; endif; ?>",
-                "learnMore":"<?php if(get_option('silktide_cc_text_more_button')): echo get_option('silktide_cc_text_more_button'); else: global $more_info; echo $more_info; endif; ?>",
-                "link":"<?php if(get_option('silktide_cc_cookie_page')): echo get_option('silktide_cc_cookie_page'); else: global $more_link; echo $more_link; endif; ?>",
-                "theme":"<?php if(get_option('silktide_cc_theme')): echo get_option('silktide_cc_theme'); else: global $theme; echo $theme; endif; ?>"
+                "message":"<?php if(get_option('silktide_cc_text_headline')): echo esc_js(get_option('silktide_cc_text_headline')); else: global $message; echo esc_js($message); endif; ?>",
+                "dismiss":"<?php if(get_option('silktide_cc_text_button')): echo esc_js(get_option('silktide_cc_text_button')); else: global $ok_button; echo esc_js($ok_button); endif; ?>",
+                "learnMore":"<?php if(get_option('silktide_cc_text_more_button')): echo esc_js(get_option('silktide_cc_text_more_button')); else: global $more_info; echo esc_js($more_info); endif; ?>",
+                "link":"<?php if(get_option('silktide_cc_cookie_page')): echo esc_js(get_option('silktide_cc_cookie_page')); else: global $more_link; echo esc_js($more_link); endif; ?>",
+                "theme":"<?php if(get_option('silktide_cc_theme')): echo esc_js(get_option('silktide_cc_theme')); else: global $theme; echo esc_js($theme); endif; ?>"
             };
         </script>
         <?php

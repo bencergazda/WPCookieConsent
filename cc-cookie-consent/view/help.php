@@ -16,7 +16,7 @@
     <p>This plugin developed by WebPositive from Hungary. <a href="https://progweb.hu" target="_blank">Click here for more information</a></p>
     <hr />
     <h3><?php _e('Why required this plugin for my site?'); ?></h3>
-    <p>From October 2015 you must need display information about cookie management. More information please read this: <a href="http://ec.europa.eu/ipg/basics/legal/cookies/index_en.htm" target="_blank" title="EU Cookies Law">EU Cookies Law</a></p>
+    <p>From October 2015 a new privacy law came into effect across the EU. The law requires that websites ask visitors for consent to use most web cookies.<br/> More information please read this: <a href="http://ec.europa.eu/ipg/basics/legal/cookies/index_en.htm" target="_blank" title="EU Cookies Law">EU Cookies Law</a></p>
     <h3><?php _e('Why Cookie Consent?'); ?></h3>
         <p><b>Free & open source</b></p>
         <p>You're forever free to copy, modify and even sell Cookie Consent.</p>
