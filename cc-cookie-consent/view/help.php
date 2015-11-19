@@ -14,6 +14,7 @@
     </p>
     <h3><?php _e('Who developed this plugin?'); ?></h3>
     <p>This plugin developed by WebPositive from Hungary. <a href="https://progweb.hu" target="_blank">Click here for more information</a></p>
+    <div class="updated"><p><?php _e('Wow! Your plugin is ready! Would you like support the development? <a target="_blank" href="https://progweb.hu/cc?utm_soure=plugin_admin">Click here</a>!'); ?></p></div>
     <hr />
     <h3><?php _e('Why required this plugin for my site?'); ?></h3>
     <p>From October 2015 a new privacy law came into effect across the EU. The law requires that websites ask visitors for consent to use most web cookies.<br/> More information please read this: <a href="http://ec.europa.eu/ipg/basics/legal/cookies/index_en.htm" target="_blank" title="EU Cookies Law">EU Cookies Law</a></p>

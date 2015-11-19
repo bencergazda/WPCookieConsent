@@ -3,7 +3,7 @@
  * Plugin Name: CC Cookie Consent (Silktide)
  * Plugin URI: https://progweb.hu/cc
  * Description: Cookie Consent Plugin for WordPress. Original javascript plugin developed by Silktide
- * Version: 1.0.1
+ * Version: 1.0.3
  * Author: WebPositive <hello@progweb.hu>
  * Author URI: https://progweb.hu
  * Tags: cookie, cookie consent, wordpress, silktide
@@ -11,8 +11,8 @@
  */
 
 if(!defined('ABSPATH'))exit;
-define('CC_VERSION','1.0.1');
-define('CC_BUILD_DATE','2015-10-14');
+define('CC_VERSION','1.0.3');
+define('CC_BUILD_DATE','2015-11-19');
 
 global $theme;
 global $message;
@@ -84,6 +84,7 @@ function wpSilktideCustomOptionTemplate($option_title, $option_desc, $option_sec
     <div class="wrap">
         <h1><?php _e($option_title); ?></h1>
         <p><?php _e($option_desc) ?></p>
+        <div class="updated"><p><?php _e('Wow! Your plugin is ready! Would you like support the development? <a target="_blank" href="https://progweb.hu/cc?utm_soure=plugin_admin">Click here</a>!'); ?></p></div>
         <form class="cc" method="post" action="options.php" id="cookieConsentSettings">
             <?php
             settings_fields($option_section);
@@ -102,7 +103,8 @@ function wpSilktideInputField($input, $placeholder) {
 }
 
 function wpSilktideSelectField($link) {
-    echo '<select name="'.$link.'">';
+    echo '<select name="'.$link.'">';	
+	echo '<option value="0">-- Not selected --</option>';
         $selected_page = get_option($link);
         $pages = get_pages();
         foreach ( $pages as $page ) {
