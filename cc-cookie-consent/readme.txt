@@ -67,6 +67,10 @@ You can fork the plugin or [open a new issue / feature request](https://github.c
 1. Settings screenshot: docs/screenshot_1.png
 
 == Changelog ==
+= 1.0.3 =
+* Fix an issue: "Allow not setting policy page" (https://github.com/progcode/WPCookieConsent/issues/1)
+* Support WordPress 4.4
+
 = 1.0.2 =
 * You can now support the plugin development via PayPal or Bitcoin
 
