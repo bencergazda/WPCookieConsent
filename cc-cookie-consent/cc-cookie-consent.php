@@ -3,16 +3,16 @@
  * Plugin Name: CC Cookie Consent (Silktide)
  * Plugin URI: https://progweb.hu/cc
  * Description: Cookie Consent Plugin for WordPress. Original javascript plugin developed by Silktide
- * Version: 1.0.3
+ * Version: 1.0.4
  * Author: WebPositive <hello@progweb.hu>
  * Author URI: https://progweb.hu
  * Tags: cookie, cookie consent, wordpress, silktide
  * Author e-mail: developer@progweb.hu
  */
 
-if(!defined('ABSPATH'))exit;
-define('CC_VERSION','1.0.3');
-define('CC_BUILD_DATE','2015-11-19');
+if(!defined('ABSPATH')) exit;
+define('CC_VERSION','1.0.4');
+define('CC_BUILD_DATE','2015-11-29');
 
 global $theme;
 global $message;
@@ -29,7 +29,7 @@ $ok_button = "Got it!";
 function wpSilktideCookieScripts()
 {
     if ($GLOBALS['pagenow'] != 'wp-login.php' && !is_admin()) {
-        wp_register_script('cc-js', ''.plugins_url( 'assets/plugin-js/cookieconsent.latest.min.js', __FILE__ ).'', array(), CC_VERSION, false);
+        wp_register_script('cc-js', ''.plugins_url( 'assets/plugin-js/cookieconsent.latest.min.js', __FILE__ ).'', array(), CC_VERSION, true);
         wp_enqueue_script('cc-js');
 
         /** This will create a Javascript Object in the header, which will be available to your scripts at runtime. */
@@ -40,22 +40,19 @@ function wpSilktideCookieScripts()
 add_action('wp_enqueue_scripts', 'wpSilktideCookieScripts');
 
 /** Add CC config js if cookie.consent.js loaded */
-function wpSilktideCookieInlineScripts() {
-    if ( wp_script_is( 'cc-js', 'done' ) ) {
-        ?>
-        <script type="text/javascript">
-            window.cookieconsent_options = {
-                "message":"<?php if(get_option('silktide_cc_text_headline')): echo esc_js(get_option('silktide_cc_text_headline')); else: global $message; echo esc_js($message); endif; ?>",
-                "dismiss":"<?php if(get_option('silktide_cc_text_button')): echo esc_js(get_option('silktide_cc_text_button')); else: global $ok_button; echo esc_js($ok_button); endif; ?>",
-                "learnMore":"<?php if(get_option('silktide_cc_text_more_button')): echo esc_js(get_option('silktide_cc_text_more_button')); else: global $more_info; echo esc_js($more_info); endif; ?>",
-                "link":"<?php if(get_option('silktide_cc_cookie_page')): echo esc_js(get_option('silktide_cc_cookie_page')); else: global $more_link; echo esc_js($more_link); endif; ?>",
-                "theme":"<?php if(get_option('silktide_cc_theme')): echo esc_js(get_option('silktide_cc_theme')); else: global $theme; echo esc_js($theme); endif; ?>"
-            };
-        </script>
-        <?php
-    }
+function wpSilktideCookieInlineScripts() { ?>
+    <script>
+        window.cookieconsent_options = {
+            "message":"<?php if(get_option('silktide_cc_text_headline')): echo esc_js(get_option('silktide_cc_text_headline')); else: global $message; echo esc_js($message); endif; ?>",
+            "dismiss":"<?php if(get_option('silktide_cc_text_button')): echo esc_js(get_option('silktide_cc_text_button')); else: global $ok_button; echo esc_js($ok_button); endif; ?>",
+            "learnMore":"<?php if(get_option('silktide_cc_text_more_button')): echo esc_js(get_option('silktide_cc_text_more_button')); else: global $more_info; echo esc_js($more_info); endif; ?>",
+            "link":"<?php if(get_option('silktide_cc_cookie_page')): echo esc_js(get_option('silktide_cc_cookie_page')); else: global $more_link; echo esc_js($more_link); endif; ?>",
+            "theme":"<?php if(get_option('silktide_cc_theme')): echo esc_js(get_option('silktide_cc_theme')); else: global $theme; echo esc_js($theme); endif; ?>"
+        };
+    </script>
+    <?php
 }
-add_action('wp_head', 'wpSilktideCookieInlineScripts');
+add_action('wp_footer', 'wpSilktideCookieInlineScripts');
 
 /** Add Settings link */
 add_filter( 'plugin_action_links_' . plugin_basename(__FILE__), 'wpSilktideCookieSettingsLinks' );

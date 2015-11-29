@@ -47,6 +47,10 @@ You can fork the plugin or [open a new issue / feature request](https://github.c
 3. Go to Settings Page
 
 == Upgrade Notice ==
+= 1.0.4 =
+* Speed improvements
+* Updated the latest Silktide JS (2.0.9)
+
 = 1.0.3 =
 * Fix an issue: "Allow not setting policy page" (https://github.com/progcode/WPCookieConsent/issues/1)
 * Support WordPress 4.4
@@ -67,6 +71,10 @@ You can fork the plugin or [open a new issue / feature request](https://github.c
 1. Settings screenshot: docs/screenshot_1.png
 
 == Changelog ==
+= 1.0.4 =
+* Speed improvements
+* Updated the latest Silktide JS (2.0.9)
+
 = 1.0.3 =
 * Fix an issue: "Allow not setting policy page" (https://github.com/progcode/WPCookieConsent/issues/1)
 * Support WordPress 4.4
