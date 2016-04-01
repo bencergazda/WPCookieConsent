@@ -3,7 +3,7 @@
  * Plugin Name: CC Cookie Consent (Silktide)
  * Plugin URI: https://progweb.hu/cc
  * Description: Cookie Consent Plugin for WordPress. Original javascript plugin developed by Silktide
- * Version: 1.0.4
+ * Version: 1.0.5
  * Author: WebPositive <hello@progweb.hu>
  * Author URI: https://progweb.hu
  * Tags: cookie, cookie consent, wordpress, silktide
@@ -11,8 +11,8 @@
  */
 
 if(!defined('ABSPATH')) exit;
-define('CC_VERSION','1.0.4');
-define('CC_BUILD_DATE','2015-11-29');
+define('CC_VERSION','1.0.5');
+define('CC_BUILD_DATE','2016-04-01');
 
 global $theme;
 global $message;
@@ -31,13 +31,49 @@ function wpSilktideCookieScripts()
     if ($GLOBALS['pagenow'] != 'wp-login.php' && !is_admin()) {
         wp_register_script('cc-js', ''.plugins_url( 'assets/plugin-js/cookieconsent.latest.min.js', __FILE__ ).'', array(), CC_VERSION, true);
         wp_enqueue_script('cc-js');
-
-        /** This will create a Javascript Object in the header, which will be available to your scripts at runtime. */
-        $wpSilktideCookieAssets = array('cc_plugin_assets' => plugins_url( 'assets/plugin-css/', __FILE__ ));
-        wp_localize_script('cc-js', 'wpSilktideCookieAssets', $wpSilktideCookieAssets);
     }
 }
 add_action('wp_enqueue_scripts', 'wpSilktideCookieScripts');
+
+/**
+ * Load css to wp_head() without js/http request
+ * Github issue: https://github.com/progcode/WPCookieConsent/issues/2
+ */
+function wpSilktideCookieStyle() {
+
+    $theme = get_option('silktide_cc_theme');
+
+    switch ($theme) {
+        case "dark-bottom":
+            wp_register_style('cc-dark-bottom', plugins_url('/assets/plugin-css/dark-bottom.css', __FILE__), array(), CC_VERSION);
+            wp_enqueue_style('cc-dark-bottom');
+            break;
+        case "dark-floating":
+            wp_register_style('cc-dark-floating', plugins_url('/assets/plugin-css/dark-floating.css', __FILE__), array(), CC_VERSION);
+            wp_enqueue_style('cc-dark-floating');
+            break;
+        case "dark-top":
+            wp_register_style('cc-dark-top', plugins_url('/assets/plugin-css/dark-top.css', __FILE__), array(), CC_VERSION);
+            wp_enqueue_style('cc-dark-top');
+            break;
+        case "light-bottom":
+            wp_register_style('cc-light-bottom', plugins_url('/assets/plugin-css/light-bottom.css', __FILE__), array(), CC_VERSION);
+            wp_enqueue_style('cc-light-bottom');
+            break;
+        case "light-floating":
+            wp_register_style('cc-light-floating', plugins_url('/assets/plugin-css/light-floating.css', __FILE__), array(), CC_VERSION);
+            wp_enqueue_style('cc-light-floating');
+            break;
+        case "light-top":
+            wp_register_style('cc-light-top', plugins_url('/assets/plugin-css/light-top.css', __FILE__), array(), CC_VERSION);
+            wp_enqueue_style('cc-light-top');
+            break;
+        default:
+            wp_register_style('cc-dark-bottom', plugins_url('/assets/plugin-css/dark-bottom.css', __FILE__), array(), CC_VERSION);
+            wp_enqueue_style('cc-dark-bottom');
+    }
+}
+add_action('wp_enqueue_scripts', 'wpSilktideCookieStyle');
 
 /** Add CC config js if cookie.consent.js loaded */
 function wpSilktideCookieInlineScripts() { ?>
@@ -131,7 +167,7 @@ function wpSilktideCookieChooseTheme() {
             "<option value='dark-top' ".selected( get_option('silktide_cc_theme'), 'dark-top', false).">Dark Top</option>".
             "<option value='dark-floating' ".selected( get_option('silktide_cc_theme'), 'dark-floating', false).">Dark Floating</option>".
             "<option value='dark-bottom' ".selected( get_option('silktide_cc_theme'), 'dark-bottom', false).">Dark Bottom</option>".
-            "<option value='light-floating' ".selected( get_option('silktide_cc_theme'), 'light-floating', false).">Dark Floating</option>".
+            "<option value='light-floating' ".selected( get_option('silktide_cc_theme'), 'light-floating', false).">Light Floating</option>".
             "<option value='light-top' ".selected( get_option('silktide_cc_theme'), 'light-top', false).">Light Top</option>".
             "<option value='light-bottom' ".selected( get_option('silktide_cc_theme'), 'light-bottom', false).">Light Bottom</option>".
         "</select>";
