@@ -3,8 +3,8 @@ Contributors: WebPositive
 Donate link: https://progweb.hu/cc
 Tags: cookie, cookie consent, wordpress, silktide
 Requires at least: 4.2.1
-Tested up to: 4.4.2
-Stable tag: 4.3
+Tested up to: 4.5
+Stable tag: 4.5
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -47,6 +47,9 @@ You can fork the plugin or [open a new issue / feature request](https://github.c
 3. Go to Settings Page
 
 == Upgrade Notice ==
+= 1.0.6 =
+* Support WordPress 4.5
+
 = 1.0.5 =
 * Speed improvements
 * Removed Silktide logo (S3.Aws)
@@ -76,6 +79,9 @@ You can fork the plugin or [open a new issue / feature request](https://github.c
 1. Settings screenshot: docs/screenshot_1.png
 
 == Changelog ==
+= 1.0.6 =
+* Support WordPress 4.5
+
 = 1.0.5 =
 * Speed improvements
 * Removed Silktide logo (S3.Aws)
