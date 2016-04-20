@@ -32,5 +32,5 @@ If you would like contribute **[go to the official Github repo](https://github.c
 You can fork the plugin or [open a new issue / feature request](https://github.com/progcode/WPCookieConsent/issues).
 ---------------------------------------------------------------------------------------------------------------------
 
-Project cross-browser compatibility supported by [BrowserStack](https://browserstack.com)
+Project cross-browser compatibility supported by [BrowserStack](https://browserstack.com)       
 ![browserstack](https://assets-github.s3.amazonaws.com/repo/progcode/img/browserstack-logo-footer.png)
