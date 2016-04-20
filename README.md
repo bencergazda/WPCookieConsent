@@ -30,5 +30,7 @@ Contributing code is both an important and effective way to improve the **CC Coo
 
 If you would like contribute **[go to the official Github repo](https://github.com/progcode/WPCookieConsent)**. 
 You can fork the plugin or [open a new issue / feature request](https://github.com/progcode/WPCookieConsent/issues).
+---------------------------------------------------------------------------------------------------------------------
 
-This open source project supported by BrowserStack
+Project cross-browser compatibility supported by [BrowserStack](https://browserstack.com)
+![browserstack](https://assets-github.s3.amazonaws.com/repo/progcode/img/browserstack-logo-footer.png)
