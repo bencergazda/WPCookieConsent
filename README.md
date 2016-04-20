@@ -28,7 +28,7 @@ Just 3.5k when minified, and you don't need JQuery or anything else.
 
 Contributing code is both an important and effective way to improve the **CC Cookie Consen**t project and its capabilities.
 
-If you would like contribute **[go to the official Github repo](https://github.com/progcode/WPCookieConsent)**. 
+If you would like contribute **[go to the official Github repo](https://github.com/progcode/WPCookieConsent)**.   
 You can fork the plugin or [open a new issue / feature request](https://github.com/progcode/WPCookieConsent/issues).
 ---------------------------------------------------------------------------------------------------------------------
 
