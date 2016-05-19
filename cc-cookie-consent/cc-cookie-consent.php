@@ -12,7 +12,7 @@
 
 if(!defined('ABSPATH')) exit;
 define('CC_VERSION','1.0.6');
-define('CC_BUILD_DATE','2016-04-15');
+define('CC_BUILD_DATE','2016-05-19');
 
 global $theme;
 global $message;
