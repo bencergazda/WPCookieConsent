@@ -1,4 +1,8 @@
 == Changelog ==   
+= 1.0.8 =
+* Support WordPress 4.7
+* Support WPML Multilanguage
+
 = 1.0.7 =
 * Support WordPress 4.6 & 4.6.1
 * Add noindex, nofollow properties to the "More info" links

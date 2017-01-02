@@ -1,0 +1,10 @@
+<wpml-config>    
+    <admin-texts>
+        <key name="silktide_cc_text_headline" />
+        <key name="silktide_cc_text_button" />
+        <key name="silktide_cc_text_more_button" />
+        <key name="silktide_cc_cookie_page" />
+    </admin-texts>    
+</wpml-config>
+
+

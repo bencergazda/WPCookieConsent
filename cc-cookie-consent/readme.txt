@@ -3,8 +3,8 @@ Contributors: WebPositive
 Donate link: https://progweb.hu/cc
 Tags: cookie, cookie consent, wordpress, silktide
 Requires at least: 4.3.0
-Tested up to: 4.6.1
-Stable tag: 4.6.1
+Tested up to: 4.7
+Stable tag: 4.7
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -47,6 +47,11 @@ You can fork the plugin or [open a new issue / feature request](https://github.c
 3. Go to Settings Page
 
 == Upgrade Notice ==
+= 1.0.8 =
+* Happy New Year! - http://giphy.com/gifs/nintendo-mario-3bT5l6Fexmm7m
+* Support WordPress 4.7
+* Support WPML Multilanguage
+
 = 1.0.7 =
 * Support WordPress 4.6 & 4.6.1
 * Add noindex, nofollow properties to the "More info" links
@@ -84,6 +89,11 @@ You can fork the plugin or [open a new issue / feature request](https://github.c
 1. Settings screenshot: docs/screenshot_1.png
 
 == Changelog ==
+= 1.0.8 =
+* Happy New Year! - http://giphy.com/gifs/nintendo-mario-3bT5l6Fexmm7m
+* Support WordPress 4.7
+* Support WPML Multilanguage
+
 = 1.0.7 =
 * Support WordPress 4.6 & 4.6.1
 * Add noindex, nofollow properties to the "More info" links
