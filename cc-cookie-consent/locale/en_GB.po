@@ -56,7 +56,7 @@ msgid "Cookie Consent Settings"
 msgstr "This settings are required to use Cookie Consent plugin on Your website. Please fill the form then see the frontend page!"
 
 msgid "Dark Top"
-msgstr"Dark Top"
+msgstr "Dark Top"
 
 msgid "Dark Floating"
 msgstr "Dark Floating"
