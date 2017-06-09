@@ -1,0 +1,177 @@
+# 
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: CC Cookie Consent\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: 2017-06-09 09:20:00+0000\n"
+"Last-Translator: WebPositive\n"
+"Language-Team: WebPositive <hello@progweb.hu>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: en_GB\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Poedit 1.8.8\n"
+"X-Poedit-Basepath: ..\n"
+"X-Poedit-KeywordsList: __;_e;__ngettext:1,2;_n:1,2;__ngettext_noop:1,2;_n_noop:1,2;_c,_nc:4c,1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;_nx_noop:4c,1,2;esc_html__;esc_html_e;esc_html_x;esc_attr__;esc_attr_e;esc_attr_x\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPathExcluded-0: css\n"
+"X-Poedit-SearchPathExcluded-1: fonts\n"
+"X-Poedit-SearchPathExcluded-2: img\n"
+"X-Poedit-SearchPathExcluded-3: js\n"
+"X-Poedit-SearchPathExcluded-4: lang\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Textdomain-Support: yes\n"
+
+msgid "Hello! This website uses cookies to ensure you get the best experience on our website"
+msgstr "Hello! This website uses cookies to ensure you get the best experience on our website"
+
+msgid "More info"
+msgstr "More info"
+
+msgid "Got it!"
+msgstr "Got it!"
+
+msgid "Settings"
+msgstr "Settings"
+
+msgid "Cookie Consent"
+msgstr "Cookie Consent"
+
+msgid "Help/Information"
+msgstr "Help/Information"
+
+msgid "Wow! Your plugin is ready! Would you like support the development? <a href='%s' target='_blank' rel='noopener'>Click here</a>!"
+msgstr "Wow! Your plugin is ready! Would you like support the development? <a href='%s' target='_blank' rel='noopener'>Click here</a>!"
+
+msgid "Click here for plugin help & information"
+msgstr "Click here for plugin help & information"
+
+msgid "-- Not selected --"
+msgstr "-- Not selected --"
+
+msgid "Cookie Consent Settings"
+msgstr "This settings are required to use Cookie Consent plugin on Your website. Please fill the form then see the frontend page!"
+
+msgid "Dark Top"
+msgstr"Dark Top"
+
+msgid "Dark Floating"
+msgstr "Dark Floating"
+
+msgid "Dark Bottom"
+msgstr "Dark Bottom"
+
+msgid "Light Floating"
+msgstr "Light Floating"
+
+msgid "Light Top"
+msgstr "Light Top"
+
+msgid "Light Bottom"
+msgstr "Light Bottom"
+
+msgid "Choose theme"
+msgstr "Choose theme"
+
+msgid "Headline text"
+msgstr "Headline text"
+
+msgid "Accept button text"
+msgstr "Accept button text"
+
+msgid "Read more button text"
+msgstr "Read more button text"
+
+msgid "Your cookie policy page"
+msgstr "Your cookie policy page"
+
+msgid "Cookie Consent Help & Information"
+msgstr "Cookie Consent Help & Information"
+
+msgid "What is this?"
+msgstr "What is this?"
+
+msgid "The <b>CC Cookie Consent</b> plugin is an unofficial WordPress plugin version of the"
+msgstr "The <b>CC Cookie Consent</b> plugin is an unofficial WordPress plugin version of the"
+
+msgid "The most popular solution to the EU Cookie Law"
+msgstr "The most popular solution to the EU Cookie Law"
+
+msgid "Who developed this plugin?"
+msgstr "Who developed this plugin?"
+
+msgid "This plugin developed by WebPositive from Hungary."
+msgstr "This plugin developed by WebPositive from Hungary."
+
+msgid "Click here for more information"
+msgstr "Click here for more information"
+
+msgid "Why required this plugin for my site?"
+msgstr "Why required this plugin for my site?"
+
+msgid "From October 2015 a new privacy law came into effect across the EU. The law requires that websites ask visitors for consent to use most web cookies."
+msgstr "From October 2015 a new privacy law came into effect across the EU. The law requires that websites ask visitors for consent to use most web cookies."
+
+msgid "More information please read this:"
+msgstr "More information please read this:"
+
+msgid "EU Cookies Law"
+msgstr "EU Cookies Law"
+
+msgid "Why Cookie Consent?"
+msgstr "Why Cookie Consent?"
+
+msgid "Free & open source"
+msgstr "Free & open source"
+
+msgid "You're forever free to copy, modify and even sell Cookie Consent."
+msgstr "You're forever free to copy, modify and even sell Cookie Consent."
+
+msgid "Lightweight"
+msgstr "Lightweight"
+
+msgid "Just 3.5k when minified, and you don't need JQuery or anything else."
+msgstr "Just 3.5k when minified, and you don't need JQuery or anything else."
+
+msgid "Customisable"
+msgstr "Customisable"
+
+msgid "Choose from one of our built-in themes or build your own with CSS."
+msgstr "Choose from one of our built-in themes or build your own with CSS."
+
+msgid "Default Settings"
+msgstr "Default Settings"
+
+msgid "The plugin includes the following default configuration:"
+msgstr "The plugin includes the following default configuration:"
+
+msgid "Headline text:"
+msgstr "Headline text:"
+
+msgid "Accept button:"
+msgstr "Accept button:"
+
+msgid "Read more button:"
+msgstr "Read more button:"
+
+msgid "Theme settings"
+msgstr "Theme settings"
+
+msgid "You can change settings here"
+msgstr "You can change settings here"
+
+msgid "Silktide Cookie Consent documentation"
+msgstr "Silktide Cookie Consent documentation"
+
+msgid "Version"
+msgstr "Version"
+
+msgid "Plugin version:"
+msgstr "Plugin version:"
+
+msgid "Plugin Build date:"
+msgstr "Plugin Build date:"
+
