@@ -1,4 +1,11 @@
 == Changelog ==   
+= 1.2.0 =  
+* This is an major update  
+* Support WordPress 4.8  
+* Support translations - https://github.com/progcode/WPCookieConsent/issues/5   
+* Fix SEO bug - https://github.com/progcode/WPCookieConsent/issues/6  
+* Minor improvements & fixes   
+
 = 1.0.8 =
 * Support WordPress 4.7
 * Support WPML Multilanguage
