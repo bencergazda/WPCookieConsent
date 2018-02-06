@@ -1,4 +1,4 @@
-# This project is UNMAINTENED because of the GDPR. 
+# This project is UNMAINTAINED because of the GDPR. 
 
 Cookie Consent Plugin for WordPress.
 
