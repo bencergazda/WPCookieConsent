@@ -17,17 +17,25 @@ if(!defined('ABSPATH')) exit('No direct script access allowed');
 define('CC_VERSION','1.2.0');
 define('CC_BUILD_DATE','2017-06-09');
 
+global $type;
 global $theme;
+global $position;
 global $message;
-global $more_info;
+global $more_button;
 global $more_link;
-global $ok_button;
+global $allow_button;
+global $deny_button;
+global $dismiss_button;
 
-$theme = "light-bottom";
-$message = __( 'Hello! This website uses cookies to ensure you get the best experience on our website', 'cookie-consent' );
-$more_info = __( 'More info', 'cookie-consent' );
-$more_link = null;
-$ok_button = __( 'Got it!', 'cookie-consent' );
+$type           = null;
+$theme          = "block";
+$position       = "bottom";
+$message        = __( 'Hello! This website uses cookies to ensure you get the best experience on our website', 'cookie-consent' );
+$more_button    = __( 'More info', 'cookie-consent' );
+$more_link      = null;
+$allow_button   = __( 'Allow', 'cookie-consent' );
+$deny_button    = __( 'Deny', 'cookie-consent' );
+$dismiss_button = __( 'Dismiss', 'cookie-consent' );
 
 /**
  * Load plugin translations
@@ -41,7 +49,7 @@ add_action( 'plugins_loaded', 'loadPluginTranslation' );
 function wpSilktideCookieScripts()
 {
     if ($GLOBALS['pagenow'] != 'wp-login.php' && !is_admin()) {
-        wp_register_script('cc-js', ''.plugins_url( 'assets/plugin-js/cookieconsent.latest.min.js', __FILE__ ).'', array(), CC_VERSION, true);
+        wp_register_script('cc-js', ''.plugins_url( 'assets/plugin-js/cookieconsent.min.js', __FILE__ ).'', array(), CC_VERSION, true);
         wp_enqueue_script('cc-js');
     }
 }
@@ -53,37 +61,10 @@ add_action('wp_enqueue_scripts', 'wpSilktideCookieScripts');
  */
 function wpSilktideCookieStyle()
 {
-    $theme = get_option('silktide_cc_theme');
-
-    switch ($theme) {
-        case "dark-bottom":
-            wp_register_style('cc-dark-bottom', plugins_url('assets/plugin-css/dark-bottom.css', __FILE__), array(), CC_VERSION);
-            wp_enqueue_style('cc-dark-bottom');
-            break;
-        case "dark-floating":
-            wp_register_style('cc-dark-floating', plugins_url('assets/plugin-css/dark-floating.css', __FILE__), array(), CC_VERSION);
-            wp_enqueue_style('cc-dark-floating');
-            break;
-        case "dark-top":
-            wp_register_style('cc-dark-top', plugins_url('assets/plugin-css/dark-top.css', __FILE__), array(), CC_VERSION);
-            wp_enqueue_style('cc-dark-top');
-            break;
-        case "light-bottom":
-            wp_register_style('cc-light-bottom', plugins_url('assets/plugin-css/light-bottom.css', __FILE__), array(), CC_VERSION);
-            wp_enqueue_style('cc-light-bottom');
-            break;
-        case "light-floating":
-            wp_register_style('cc-light-floating', plugins_url('assets/plugin-css/light-floating.css', __FILE__), array(), CC_VERSION);
-            wp_enqueue_style('cc-light-floating');
-            break;
-        case "light-top":
-            wp_register_style('cc-light-top', plugins_url('assets/plugin-css/light-top.css', __FILE__), array(), CC_VERSION);
-            wp_enqueue_style('cc-light-top');
-            break;
-        default:
-            wp_register_style('cc-dark-bottom', plugins_url('assets/plugin-css/dark-bottom.css', __FILE__), array(), CC_VERSION);
-            wp_enqueue_style('cc-dark-bottom');
-    }
+	if ($GLOBALS['pagenow'] != 'wp-login.php' && !is_admin()) {
+		wp_register_style('cc-css', plugins_url('assets/plugin-css/cookieconsent.min.css', __FILE__), array(), CC_VERSION);
+		wp_enqueue_style('cc-css');
+	}
 }
 add_action('wp_enqueue_scripts', 'wpSilktideCookieStyle');
 
@@ -91,13 +72,21 @@ add_action('wp_enqueue_scripts', 'wpSilktideCookieStyle');
 function wpSilktideCookieInlineScripts()
 { ?>
     <script>
-        window.cookieconsent_options = {
-            "message":"<?php if(get_option('silktide_cc_text_headline')): echo esc_js(get_option('silktide_cc_text_headline')); else: global $message; echo esc_js($message); endif; ?>",
-            "dismiss":"<?php if(get_option('silktide_cc_text_button')): echo esc_js(get_option('silktide_cc_text_button')); else: global $ok_button; echo esc_js($ok_button); endif; ?>",
-            "learnMore":"<?php if(get_option('silktide_cc_text_more_button')): echo esc_js(get_option('silktide_cc_text_more_button')); else: global $more_info; echo esc_js($more_info); endif; ?>",
-            "link":"<?php if(get_option('silktide_cc_cookie_page')): echo esc_js(get_option('silktide_cc_cookie_page')); else: global $more_link; echo esc_js($more_link); endif; ?>",
-            "theme":"<?php if(get_option('silktide_cc_theme')): echo esc_js(get_option('silktide_cc_theme')); else: global $theme; echo esc_js($theme); endif; ?>"
-        };
+		window.addEventListener("load", function(){
+			window.cookieconsent.initialise({
+				"type": "<?php if(get_option('silktide_cc_type')): echo esc_js(get_option('silktide_cc_type')); else: global $type; echo esc_js($type); endif; ?>",
+				"content": {
+					"message":"<?php if(get_option('silktide_cc_text_message')): echo esc_js(get_option('silktide_cc_text_message')); else: global $message; echo esc_js($message); endif; ?>",
+					"allow":"<?php if(get_option('silktide_cc_text_allow_button')): echo esc_js(get_option('silktide_cc_text_allow_button')); else: global $allow_button; echo esc_js($allow_button); endif; ?>",
+					"deny":"<?php if(get_option('silktide_cc_text_deny_button')): echo esc_js(get_option('silktide_cc_text_deny_button')); else: global $deny_button; echo esc_js($deny_button); endif; ?>",
+					"dismiss":"<?php if(get_option('silktide_cc_text_dismiss_button')): echo esc_js(get_option('silktide_cc_text_dismiss_button')); else: global $dismiss_button; echo esc_js($dismiss_button); endif; ?>",
+					"href":"<?php if(get_option('silktide_cc_cookie_page')): echo esc_js(get_option('silktide_cc_cookie_page')); else: global $more_link; echo esc_js($more_link); endif; ?>",
+					"link":"<?php if(get_option('silktide_cc_text_more_button')): echo esc_js(get_option('silktide_cc_text_more_button')); else: global $more_button; echo esc_js($more_button); endif; ?>",
+				},
+				"theme":"<?php if(get_option('silktide_cc_theme')): echo esc_js(get_option('silktide_cc_theme')); else: global $theme; echo esc_js($theme); endif; ?>",
+				"position": "<?php if(get_option('silktide_cc_position')): echo esc_js(get_option('silktide_cc_position')); else: global $position; echo esc_js($position); endif; ?>"
+			});
+        });
     </script>
     <?php
 }
@@ -187,30 +176,65 @@ function wpSilktideCookieSettingsPage()
 }
 
 /** Plugin Settings Fields */
+function wpSilktideCookieChooseType()
+{
+    echo
+        "<select name='silktide_cc_type' id='silktide_cc_type'>".
+			"<option value='' ".selected( get_option('silktide_cc_type'), '', false).">".__('Just tell users that we use cookies', 'cookie-consent')."</option>".
+        	"<option value='opt-out' ".selected( get_option('silktide_cc_type'), 'opt-out', false).">".__('Let users opt out of cookies', 'cookie-consent')."</option>".
+			"<option value='opt-in' ".selected( get_option('silktide_cc_type'), 'opt-in', false).">".__('Ask users to opt into cookies', 'cookie-consent')."</option>".
+        "</select>";
+}
+
 function wpSilktideCookieChooseTheme()
 {
     echo
         "<select name='silktide_cc_theme' id='silktide_cc_theme'>".
-            "<option value='dark-top' ".selected( get_option('silktide_cc_theme'), 'dark-top', false).">".__('Dark Top', 'cookie-consent')."</option>".
-            "<option value='dark-floating' ".selected( get_option('silktide_cc_theme'), 'dark-floating', false).">".__('Dark Floating', 'cookie-consent')."</option>".
-            "<option value='dark-bottom' ".selected( get_option('silktide_cc_theme'), 'dark-bottom', false).">".__('Dark Bottom', 'cookie-consent')."</option>".
-            "<option value='light-floating' ".selected( get_option('silktide_cc_theme'), 'light-floating', false).">".__('Light Floating', 'cookie-consent')."</option>".
-            "<option value='light-top' ".selected( get_option('silktide_cc_theme'), 'light-top', false).">".__('Light Top', 'cookie-consent')."</option>".
-            "<option value='light-bottom' ".selected( get_option('silktide_cc_theme'), 'light-bottom', false).">".__('Light Bottom', 'cookie-consent')."</option>".
+			"<option value='block' ".selected( get_option('silktide_cc_theme'), 'top', false).">".__('Block', 'cookie-consent')."</option>".
+        	"<option value='classic' ".selected( get_option('silktide_cc_theme'), 'classic', false).">".__('Classic', 'cookie-consent')."</option>".
+			"<option value='edgeless' ".selected( get_option('silktide_cc_theme'), 'edgeless', false).">".__('Edgeless', 'cookie-consent')."</option>".
+			"<option value='wire' ".selected( get_option('silktide_cc_theme'), 'wire', false).">".__('Wire', 'cookie-consent')."</option>".
+        "</select>";
+}
+
+function wpSilktideCookieChoosePosition()
+{
+    echo
+        "<select name='silktide_cc_position' id='silktide_cc_position'>".
+            "<option value='top' ".selected( get_option('silktide_cc_position'), 'top', false).">".__('Top', 'cookie-consent')."</option>".
+            "<option value='bottom' ".selected( get_option('silktide_cc_position'), 'bottom', false).">".__('Bottom', 'cookie-consent')."</option>".
+            "<option value='top-left' ".selected( get_option('silktide_cc_position'), 'top-left', false).">".__('Top left', 'cookie-consent')."</option>".
+            "<option value='top-right' ".selected( get_option('silktide_cc_position'), 'top-right', false).">".__('Top right', 'cookie-consent')."</option>".
+            "<option value='bottom-left' ".selected( get_option('silktide_cc_position'), 'bottom-left', false).">".__('Bottom left', 'cookie-consent')."</option>".
+            "<option value='bottom-right' ".selected( get_option('silktide_cc_position'), 'bottom-right', false).">".__('Bottom right', 'cookie-consent')."</option>".
         "</select>";
 }
 
 function wpSilktideCookieTextHeadline()
 {
-    $input = "silktide_cc_text_headline";
+    $input = "silktide_cc_text_message";
     $placeholder = "Headline text";
     wpSilktideInputField($input, $placeholder);
 }
 
-function wpSilktideCookieTextAcceptButton()
+function wpSilktideCookieTextAllowButton()
 {
-    $input = "silktide_cc_text_button";
-    $placeholder = "Accept button text";
+    $input = "silktide_cc_text_allow_button";
+    $placeholder = "Allow button text";
+    wpSilktideInputField($input, $placeholder);
+}
+
+function wpSilktideCookieTextDenyButton()
+{
+    $input = "silktide_cc_text_deny_button";
+    $placeholder = "Deny button text";
+    wpSilktideInputField($input, $placeholder);
+}
+
+function wpSilktideCookieTextDismissButton()
+{
+    $input = "silktide_cc_text_dismiss_button";
+    $placeholder = "Dismiss button text";
     wpSilktideInputField($input, $placeholder);
 }
 
@@ -240,15 +264,23 @@ function wpSilktideCookieFields()
 {
     add_settings_section("silktide-cc-plugin-section", null, null, "silktide-cc-plugin-options");
 
+    add_settings_field("silktide_cc_type", __('Choose compliance type', 'cookie-consent'), "wpSilktideCookieChooseType", "silktide-cc-plugin-options", "silktide-cc-plugin-section");
     add_settings_field("silktide_cc_theme", __('Choose theme', 'cookie-consent'), "wpSilktideCookieChooseTheme", "silktide-cc-plugin-options", "silktide-cc-plugin-section");
-    add_settings_field("silktide_cc_text_headline", __('Headline text', 'cookie-consent'), "wpSilktideCookieTextHeadline", "silktide-cc-plugin-options", "silktide-cc-plugin-section");
-    add_settings_field("silktide_cc_text_button", __('Accept button text', 'cookie-consent'), "wpSilktideCookieTextAcceptButton", "silktide-cc-plugin-options", "silktide-cc-plugin-section");
+    add_settings_field("silktide_cc_position", __('Choose position', 'cookie-consent'), "wpSilktideCookieChoosePosition", "silktide-cc-plugin-options", "silktide-cc-plugin-section");
+    add_settings_field("silktide_cc_text_message", __('Headline text', 'cookie-consent'), "wpSilktideCookieTextHeadline", "silktide-cc-plugin-options", "silktide-cc-plugin-section");
+    add_settings_field("silktide_cc_text_allow_button", __('Accept button text', 'cookie-consent'), "wpSilktideCookieTextAllowButton", "silktide-cc-plugin-options", "silktide-cc-plugin-section");
+    add_settings_field("silktide_cc_text_deny_button", __('Deny button text', 'cookie-consent'), "wpSilktideCookieTextDenyButton", "silktide-cc-plugin-options", "silktide-cc-plugin-section");
+    add_settings_field("silktide_cc_text_dismiss_button", __('Dismiss button text', 'cookie-consent'), "wpSilktideCookieTextDismissButton", "silktide-cc-plugin-options", "silktide-cc-plugin-section");
     add_settings_field("silktide_cc_text_more_button", __('Read more button text', 'cookie-consent'), "wpSilktideCookieTextReadMoreButton", "silktide-cc-plugin-options", "silktide-cc-plugin-section");
     add_settings_field("silktide_cc_cookie_page", __('Your cookie policy page', 'cookie-consent'), "wpSilktideCookieLinkCookiePolicy", "silktide-cc-plugin-options", "silktide-cc-plugin-section");
 
+    register_setting("silktide-cc-plugin-section", "silktide_cc_type");
     register_setting("silktide-cc-plugin-section", "silktide_cc_theme");
-    register_setting("silktide-cc-plugin-section", "silktide_cc_text_headline");
-    register_setting("silktide-cc-plugin-section", "silktide_cc_text_button");
+    register_setting("silktide-cc-plugin-section", "silktide_cc_position");
+    register_setting("silktide-cc-plugin-section", "silktide_cc_text_message");
+    register_setting("silktide-cc-plugin-section", "silktide_cc_text_allow_button");
+    register_setting("silktide-cc-plugin-section", "silktide_cc_text_deny_button");
+    register_setting("silktide-cc-plugin-section", "silktide_cc_text_dismiss_button");
     register_setting("silktide-cc-plugin-section", "silktide_cc_text_more_button");
     register_setting("silktide-cc-plugin-section", "silktide_cc_cookie_page");
 
