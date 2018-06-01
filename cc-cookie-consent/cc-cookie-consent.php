@@ -166,13 +166,13 @@ function wpSilktideCustomOptionTemplate($option_title, $option_desc, $option_sec
 function wpSilktideInputField($input, $placeholder, $default)
 {
 	$value = get_option($input) ? get_option($input) : $default;
-    echo '<input class="regular-text" type="text" name="'.$input.'" id="'.$input.'" value="'.$value.'" placeholder="'.$placeholder.'" />';
+    echo '<input class="regular-text" type="text" name="'.$input.'" id="'.$input.'" value="'.htmlentities($value).'" placeholder="'.htmlentities($placeholder).'" />';
 }
 
 function wpSilktideColorPicker($input, $placeholder, $default)
 {
 	$value = get_option($input) ? get_option($input) : $default;
-	echo '<input class="cc_color_picker" type="text" name="'.$input.'" id="'.$input.'" value="'.$value.'" placeholder="'.$placeholder.'" />';
+	echo '<input class="cc_color_picker" type="text" name="'.$input.'" id="'.$input.'" value="'.htmlentities($value).'" placeholder="'.htmlentities($placeholder).'" />';
 }
 
 function wpSilktideSelectField($link)
