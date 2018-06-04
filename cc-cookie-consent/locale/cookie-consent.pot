@@ -13,165 +13,272 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: en_GB\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Poedit 1.8.8\n"
+"X-Generator: Poedit 2.0.8\n"
 "X-Poedit-Basepath: ..\n"
 "X-Poedit-KeywordsList: __;_e;__ngettext:1,2;_n:1,2;__ngettext_noop:1,2;_n_noop:1,2;_c,_nc:4c,1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;_nx_noop:4c,1,2;esc_html__;esc_html_e;esc_html_x;esc_attr__;esc_attr_e;esc_attr_x\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Textdomain-Support: yes\n"
 "X-Poedit-SearchPath-0: .\n"
 "X-Poedit-SearchPathExcluded-0: css\n"
 "X-Poedit-SearchPathExcluded-1: fonts\n"
 "X-Poedit-SearchPathExcluded-2: img\n"
 "X-Poedit-SearchPathExcluded-3: js\n"
 "X-Poedit-SearchPathExcluded-4: lang\n"
-"X-Poedit-SourceCharset: UTF-8\n"
-"X-Textdomain-Support: yes\n"
 
-msgid "Hello! This website uses cookies to ensure you get the best experience on our website"
-msgstr ""
-
-msgid "More info"
-msgstr ""
-
-msgid "Got it!"
-msgstr ""
-
+#: cc-cookie-consent.php:91
 msgid "Settings"
 msgstr ""
 
+#: cc-cookie-consent.php:100
 msgid "Cookie Consent"
 msgstr ""
 
+#: cc-cookie-consent.php:105
 msgid "Help/Information"
 msgstr ""
 
-msgid "Wow! Your plugin is ready! Would you like support the development? <a href='%s' target='_blank' rel='noopener'>Click here</a>!"
+#: cc-cookie-consent.php:119
+#, php-format
+msgid "Wow! Your plugin is ready! Would you like support the development? <a href=\"%s\" target=\"_blank\" rel=\"noopener\">Click here</a>!"
 msgstr ""
 
+#: cc-cookie-consent.php:133
 msgid "Click here for plugin help & information"
 msgstr ""
 
+#: cc-cookie-consent.php:151
 msgid "-- Not selected --"
 msgstr ""
 
+#: cc-cookie-consent.php:168
 msgid "Cookie Consent Settings"
 msgstr ""
 
-msgid "Dark Top"
+#: cc-cookie-consent.php:169
+msgid "These settings are required to use Cookie Consent plugin on Your website. Please fill the form then see the frontend page!"
 msgstr ""
 
-msgid "Dark Floating"
+#: cc-cookie-consent.php:180
+msgid "Just tell users that we use cookies"
 msgstr ""
 
-msgid "Dark Bottom"
+#: cc-cookie-consent.php:181
+msgid "Let users opt out of cookies"
 msgstr ""
 
-msgid "Light Floating"
+#: cc-cookie-consent.php:182
+msgid "Ask users to opt into cookies"
 msgstr ""
 
-msgid "Light Top"
+#: cc-cookie-consent.php:190
+msgid "Block"
 msgstr ""
 
-msgid "Light Bottom"
+#: cc-cookie-consent.php:191
+msgid "Classic"
 msgstr ""
 
+#: cc-cookie-consent.php:192
+msgid "Edgeless"
+msgstr ""
+
+#: cc-cookie-consent.php:193
+msgid "Wire"
+msgstr ""
+
+#: cc-cookie-consent.php:201
+msgid "Top"
+msgstr ""
+
+#: cc-cookie-consent.php:202
+msgid "Bottom"
+msgstr ""
+
+#: cc-cookie-consent.php:203
+msgid "Top left"
+msgstr ""
+
+#: cc-cookie-consent.php:204
+msgid "Top right"
+msgstr ""
+
+#: cc-cookie-consent.php:205
+msgid "Bottom left"
+msgstr ""
+
+#: cc-cookie-consent.php:206
+msgid "Bottom right"
+msgstr ""
+
+#: cc-cookie-consent.php:294
+msgid "Choose compliance type"
+msgstr ""
+
+#: cc-cookie-consent.php:295
 msgid "Choose theme"
 msgstr ""
 
+#: cc-cookie-consent.php:296
+msgid "Choose position"
+msgstr ""
+
+#: cc-cookie-consent.php:297
 msgid "Headline text"
 msgstr ""
 
+#: cc-cookie-consent.php:298
 msgid "Accept button text"
 msgstr ""
 
+#: cc-cookie-consent.php:299
+msgid "Deny button text"
+msgstr ""
+
+#: cc-cookie-consent.php:300
+msgid "Dismiss button text"
+msgstr ""
+
+#: cc-cookie-consent.php:301
 msgid "Read more button text"
 msgstr ""
 
+#: cc-cookie-consent.php:302
 msgid "Your cookie policy page"
 msgstr ""
 
+#: cc-cookie-consent.php:303
+msgid "Background color"
+msgstr ""
+
+#: cc-cookie-consent.php:304
+msgid "Button background color"
+msgstr ""
+
+#: cc-cookie-consent.php:305
+msgid "Text color"
+msgstr ""
+
+#: cc-cookie-consent.php:306
+msgid "Button text color"
+msgstr ""
+
+#: view/help.php:9
 msgid "Cookie Consent Help & Information"
 msgstr ""
 
+#: view/help.php:10
 msgid "What is this?"
 msgstr ""
 
+#: view/help.php:12
 msgid "The <b>CC Cookie Consent</b> plugin is an unofficial WordPress plugin version of the"
 msgstr ""
 
-msgid "The most popular solution to the EU Cookie Law"
+#: view/help.php:14
+msgid "The most popular solution to the EU Cookie Law."
 msgstr ""
 
+#: view/help.php:16
 msgid "Who developed this plugin?"
 msgstr ""
 
+#: view/help.php:18
 msgid "This plugin developed by WebPositive from Hungary."
 msgstr ""
 
+#: view/help.php:19
 msgid "Click here for more information"
 msgstr ""
 
+#: view/help.php:25
+#, php-format
+msgid "Wow! Your plugin is ready! Would you like support the development? <a href='%s' target='_blank' rel='noopener'>Click here</a>!"
+msgstr ""
+
+#: view/help.php:32
 msgid "Why required this plugin for my site?"
 msgstr ""
 
+#: view/help.php:34
 msgid "From October 2015 a new privacy law came into effect across the EU. The law requires that websites ask visitors for consent to use most web cookies."
 msgstr ""
 
+#: view/help.php:35
 msgid "More information please read this:"
 msgstr ""
 
+#: view/help.php:36
 msgid "EU Cookies Law"
 msgstr ""
 
+#: view/help.php:38
 msgid "Why Cookie Consent?"
 msgstr ""
 
+#: view/help.php:39
 msgid "Free & open source"
 msgstr ""
 
+#: view/help.php:40
 msgid "You're forever free to copy, modify and even sell Cookie Consent."
 msgstr ""
 
+#: view/help.php:41
 msgid "Lightweight"
 msgstr ""
 
+#: view/help.php:42
 msgid "Just 3.5k when minified, and you don't need JQuery or anything else."
 msgstr ""
 
+#: view/help.php:43
 msgid "Customisable"
 msgstr ""
 
+#: view/help.php:44
 msgid "Choose from one of our built-in themes or build your own with CSS."
 msgstr ""
 
+#: view/help.php:46
 msgid "Default Settings"
 msgstr ""
 
+#: view/help.php:47
 msgid "The plugin includes the following default configuration:"
 msgstr ""
 
+#: view/help.php:50
 msgid "Headline text:"
 msgstr ""
 
+#: view/help.php:53
 msgid "Accept button:"
 msgstr ""
 
+#: view/help.php:56
 msgid "Read more button:"
 msgstr ""
 
+#: view/help.php:59 view/help.php:60
 msgid "Theme settings"
 msgstr ""
 
+#: view/help.php:61
 msgid "You can change settings here"
 msgstr ""
 
+#: view/help.php:62
 msgid "Silktide Cookie Consent documentation"
 msgstr ""
 
+#: view/help.php:64
 msgid "Version"
 msgstr ""
 
+#: view/help.php:67
 msgid "Plugin version:"
 msgstr ""
 
+#: view/help.php:70
 msgid "Plugin Build date:"
 msgstr ""
-
